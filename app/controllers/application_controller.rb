@@ -11,12 +11,12 @@ class ApplicationController < Sinatra::Base
   
   # RESTful show action, displays one recipe based on ID in the url
   get '/recipes/:id' do 
-   @recipe = Recipe.find_by_id(params[:id])
+  @recipe = Recipe.find_by_id(params[:id])
     erb :show
   end
   
   # RESTful update action, modifies an existing recipe on id in the url. 
-   patch '/recipes/:id' do 
+  patch '/recipes/:id' do 
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.name = params[:name]
     @recipe.ingredients = params[:ingredients]
@@ -36,14 +36,14 @@ class ApplicationController < Sinatra::Base
     @recipe = Recipe.create(params)
     redirect to "/recipes/#{@recipe.id}"
   end
+
     
 # RESTful delete action, deletes one recipe based on id in the url
-     delete '/recipes/:id' do 
+    delete '/recipes/:id' do 
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
     redirect to '/recipes'
   end
   
-  
-    
 end
+
